@@ -1,0 +1,15 @@
+.cart-page {
+  min-height: 60vh;
+  padding: 60px 7%;
+  text-align: center;
+}
+
+.cart-page h1 {
+  color: #0f172a;
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.cart-page p {
+  color: #64748b;
+}

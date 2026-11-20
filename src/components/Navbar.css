@@ -1,0 +1,159 @@
+.announcement-bar {
+  min-height: 34px;
+  padding: 8px 7%;
+  background: #101d42;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+}
+
+.announcement-bar span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.announcement-bar svg {
+  color: #e9bd54;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  min-height: 82px;
+  padding: 14px 7%;
+  background: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+  box-shadow: 0 5px 20px rgba(15, 29, 66, 0.08);
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  gap: 3px;
+}
+
+.logo-main {
+  color: #142957;
+  font-size: 27px;
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+
+.logo-main span {
+  color: #c49a3a;
+}
+
+.logo small {
+  color: #7b8495;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav-links a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #172443;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  transition: color 0.25s ease;
+}
+
+.nav-links a:not(.cart-link)::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #c49a3a;
+  transition: width 0.25s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #bd9131;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+.nav-links .cart-link {
+  padding: 12px 19px;
+  color: #ffffff;
+  background: #142957;
+  border-radius: 5px;
+  transition: all 0.25s ease;
+}
+
+.nav-links .cart-link:hover,
+.nav-links .cart-link.active {
+  color: #142957;
+  background: #e9bd54;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 760px) {
+  .announcement-bar {
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+    font-size: 9px;
+  }
+
+  .announcement-bar span:last-child {
+    display: none;
+  }
+
+  .navbar {
+    flex-direction: column;
+    padding: 15px 4%;
+    gap: 17px;
+  }
+
+  .nav-links {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 17px;
+  }
+
+  .nav-links a {
+    font-size: 12px;
+  }
+
+  .nav-links .cart-link {
+    padding: 9px 13px;
+  }
+}
+
+@media (max-width: 380px) {
+  .nav-links {
+    gap: 12px;
+  }
+
+  .nav-links a {
+    font-size: 11px;
+  }
+}

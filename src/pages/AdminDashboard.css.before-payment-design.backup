@@ -1,0 +1,879 @@
+
+/* ========================================
+   VYNTRA ADMIN DASHBOARD
+======================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.admin-dashboard {
+  display: flex;
+  min-height: 100vh;
+  background: #f5f6fa;
+  color: #252b42;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* ========================================
+   SIDEBAR
+======================================== */
+
+.admin-sidebar {
+  width: 250px;
+  min-width: 250px;
+  min-height: 100vh;
+  background: #171c2e;
+  color: #ffffff;
+  padding: 28px 18px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.admin-sidebar h2 {
+  font-size: 25px;
+  font-weight: 700;
+  margin-bottom: 38px;
+  text-align: center;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+
+.admin-sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.admin-sidebar nav button {
+  width: 100%;
+  padding: 14px 18px;
+  border: none;
+  border-radius: 9px;
+  background: transparent;
+  color: #c5c9d6;
+  text-align: left;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.admin-sidebar nav button:hover {
+  background: #2c3450;
+  color: #ffffff;
+  transform: translateX(3px);
+}
+
+.admin-sidebar nav button.active {
+  background: #6c63ff;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* ========================================
+   MAIN CONTENT
+======================================== */
+
+.admin-main {
+  flex: 1;
+  min-width: 0;
+  padding: 30px;
+  overflow-x: hidden;
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 20px 25px;
+  margin-bottom: 30px;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.04);
+}
+
+.admin-header h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #252b42;
+}
+
+.admin-header button,
+.section-heading button {
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  background: #6c63ff;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.admin-header button:hover,
+.section-heading button:hover {
+  background: #5148e5;
+  transform: translateY(-2px);
+}
+
+/* ========================================
+   DASHBOARD CARDS
+======================================== */
+
+.dashboard-content h2 {
+  font-size: 23px;
+  margin-bottom: 22px;
+  color: #252b42;
+}
+
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.dashboard-card {
+  background: #ffffff;
+  padding: 28px 24px;
+  border-radius: 14px;
+  border-left: 5px solid #6c63ff;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+  transition: 0.3s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.09);
+}
+
+.dashboard-card h3 {
+  color: #777e91;
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 14px;
+}
+
+.dashboard-card p {
+  color: #252b42;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+/* ========================================
+   ADMIN SECTIONS
+======================================== */
+
+.admin-section {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+}
+
+.admin-section > h2 {
+  font-size: 22px;
+  margin-bottom: 22px;
+  color: #252b42;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.section-heading h2 {
+  font-size: 22px;
+  color: #252b42;
+}
+
+/* ========================================
+   INPUTS AND SEARCH
+======================================== */
+
+.admin-section input:not([type="file"]),
+.product-form-container input,
+.product-form-container textarea,
+.product-form-container select {
+  width: 100%;
+  padding: 13px 15px;
+  margin: 8px 0 18px;
+  border: 1px solid #dfe2eb;
+  border-radius: 8px;
+  outline: none;
+  background: #ffffff;
+  color: #252b42;
+  font-size: 14px;
+  transition: 0.3s ease;
+}
+
+.admin-section input:focus,
+.product-form-container input:focus,
+.product-form-container textarea:focus,
+.product-form-container select:focus {
+  border-color: #6c63ff;
+  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.12);
+}
+
+.product-form-container textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.product-form-container label {
+  display: block;
+  margin-top: 10px;
+  color: #343a50;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* ========================================
+   ADD PRODUCT FORM
+======================================== */
+
+.product-form-container {
+  max-width: 750px;
+  margin: 25px auto;
+  padding: 30px;
+  background: #ffffff;
+  border: 1px solid #e8e9f0;
+  border-radius: 14px;
+  box-shadow: 0 5px 22px rgba(0, 0, 0, 0.06);
+}
+
+.product-form-container h3 {
+  margin-bottom: 25px;
+  color: #252b42;
+  font-size: 21px;
+}
+
+.product-form-container input[type="file"] {
+  display: block;
+  width: 100%;
+  margin: 10px 0 20px;
+  padding: 14px;
+  border: 2px dashed #c9c7ff;
+  border-radius: 9px;
+  background: #f8f8ff;
+  cursor: pointer;
+  color: #555b70;
+}
+
+.product-form-container input[type="file"]::file-selector-button {
+  padding: 10px 16px;
+  margin-right: 15px;
+  border: none;
+  border-radius: 6px;
+  background: #6c63ff;
+  color: #ffffff;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.product-form-container input[type="file"]::file-selector-button:hover {
+  background: #5148e5;
+}
+
+/* ========================================
+   IMAGE PREVIEW
+======================================== */
+
+.image-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 15px 0 25px;
+  padding: 15px;
+  background: #f7f7ff;
+  border: 1px solid #e5e4ff;
+  border-radius: 10px;
+}
+
+.image-preview img {
+  width: 180px !important;
+  height: 180px !important;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid #e1e1e1;
+}
+
+.image-preview button {
+  padding: 9px 16px;
+  border: none;
+  border-radius: 6px;
+  background: #ef4444;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.image-preview button:hover {
+  background: #dc2626;
+}
+
+/* ========================================
+   FORM BUTTONS
+======================================== */
+
+.form-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.form-buttons button {
+  padding: 12px 22px;
+  border: none;
+  border-radius: 8px;
+  background: #6c63ff;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.form-buttons button:hover {
+  background: #5148e5;
+}
+
+.form-buttons button:last-child {
+  background: #e8eaf0;
+  color: #343a50;
+}
+
+.form-buttons button:last-child:hover {
+  background: #d8dbe4;
+}
+
+.form-buttons button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ========================================
+   PRODUCT GRID AND CARDS
+======================================== */
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 30px;
+}
+
+.product-card {
+  overflow: hidden;
+  padding: 18px;
+  background: #ffffff;
+  border: 1px solid #e9eaf0;
+  border-radius: 12px;
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.04);
+  transition: 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.09);
+}
+
+.product-image {
+  display: block;
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  border-radius: 9px;
+  margin-bottom: 16px;
+  background: #f3f4f6;
+}
+
+.product-card h3 {
+  margin-bottom: 10px;
+  color: #252b42;
+  font-size: 17px;
+}
+
+.product-card p {
+  margin-bottom: 8px;
+  color: #777e91;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.product-card button {
+  width: 100%;
+  margin-top: 12px;
+  padding: 10px;
+  border: none;
+  border-radius: 7px;
+  background: #ef4444;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.product-card button:hover {
+  background: #dc2626;
+}
+
+/* ========================================
+   CATEGORY / USER / ORDER / CART ITEMS
+======================================== */
+
+.admin-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 17px 18px;
+  margin-bottom: 12px;
+  border: 1px solid #eceef3;
+  border-radius: 9px;
+  background: #fafbff;
+  color: #343a50;
+}
+
+.admin-list-item span {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.admin-list-item button {
+  padding: 9px 16px;
+  border: none;
+  border-radius: 6px;
+  background: #ef4444;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.admin-list-item button:hover {
+  background: #dc2626;
+}
+
+.admin-list-item select {
+  min-width: 140px;
+  padding: 9px 12px;
+  border: 1px solid #dfe2eb;
+  border-radius: 7px;
+  outline: none;
+  background: #ffffff;
+  color: #343a50;
+  cursor: pointer;
+}
+
+/* ========================================
+   ERROR AND SUCCESS MESSAGES
+======================================== */
+
+.error-message {
+  padding: 12px 15px;
+  margin: 12px 0;
+  border-radius: 7px;
+  background: #fff0f0;
+  color: #dc2626;
+  font-size: 14px;
+  white-space: pre-wrap;
+}
+
+.success-message {
+  padding: 12px 15px;
+  margin: 12px 0;
+  border-radius: 7px;
+  background: #ecfdf3;
+  color: #15803d;
+  font-size: 14px;
+}
+
+.admin-section > p,
+.dashboard-content > p {
+  color: #777e91;
+  padding: 15px 0;
+}
+
+/* ========================================
+   LOADING
+======================================== */
+
+.admin-main > p {
+  color: #6c63ff;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+/* ========================================
+   RESPONSIVE - TABLET
+======================================== */
+
+@media (max-width: 1100px) {
+  .products-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dashboard-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-dashboard {
+    flex-direction: column;
+  }
+
+  .admin-sidebar {
+    width: 100%;
+    min-width: 100%;
+    min-height: auto;
+    height: auto;
+    position: relative;
+    padding: 18px;
+  }
+
+  .admin-sidebar h2 {
+    margin-bottom: 18px;
+  }
+
+  .admin-sidebar nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .admin-sidebar nav button {
+    width: auto;
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+
+  .admin-main {
+    padding: 18px;
+  }
+
+  .admin-header {
+    padding: 16px;
+  }
+
+  .admin-header h2 {
+    font-size: 19px;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .product-form-container {
+    padding: 20px;
+  }
+}
+
+/* ========================================
+   RESPONSIVE - MOBILE
+======================================== */
+
+@media (max-width: 480px) {
+  .admin-main {
+    padding: 12px;
+  }
+
+  .admin-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .admin-header button {
+    width: 100%;
+  }
+
+  .admin-sidebar nav {
+    justify-content: flex-start;
+  }
+
+  .admin-sidebar nav button {
+    flex: 1 1 40%;
+    text-align: center;
+  }
+
+  .dashboard-cards {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-section {
+    padding: 16px;
+  }
+
+  .section-heading {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .section-heading button {
+    width: 100%;
+  }
+
+  .product-form-container {
+    padding: 16px;
+  }
+
+  .form-buttons {
+    flex-direction: column;
+  }
+
+  .form-buttons button {
+    width: 100%;
+  }
+
+  .admin-list-item {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .admin-list-item select,
+  .admin-list-item button {
+    width: 100%;
+  }
+}
+
+/* ========================================
+   ORDERS & PAYMENTS - PREMIUM ADMIN UI
+======================================== */
+
+/* Shared section styling */
+.orders-section,
+.payments-section {
+  width: 100%;
+  padding: 28px;
+  background: #ffffff;
+  border: 1px solid #e9edf5;
+  border-radius: 16px;
+  box-shadow: 0 5px 24px rgba(25, 35, 65, 0.05);
+}
+
+.orders-section h2,
+.payments-section h2 {
+  color: #17213b;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+/* Orders list */
+.orders-section .admin-list-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 22px;
+  margin-bottom: 14px;
+  background: #ffffff;
+  border: 1px solid #e8edf5;
+  border-radius: 12px;
+  transition: all 0.25s ease;
+}
+
+.orders-section .admin-list-item:hover {
+  border-color: #c7c3ff;
+  background: #fafaff;
+  box-shadow: 0 5px 16px rgba(108, 99, 255, 0.08);
+  transform: translateY(-2px);
+}
+
+.orders-section .admin-list-item span {
+  color: #27334d;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.7;
+}
+
+/* Order status dropdown */
+.orders-section .admin-list-item select {
+  min-width: 155px;
+  padding: 11px 14px;
+  border: 1px solid #dce2ee;
+  border-radius: 9px;
+  background: #f8f9ff;
+  color: #343b55;
+  font-size: 13px;
+  font-weight: 600;
+  outline: none;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.orders-section .admin-list-item select:focus {
+  border-color: #6c63ff;
+  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.12);
+}
+
+/* Payments list */
+.payments-section .admin-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 20px 22px;
+  margin-bottom: 14px;
+  background: #ffffff;
+  border: 1px solid #e8edf5;
+  border-radius: 12px;
+  transition: all 0.25s ease;
+}
+
+.payments-section .admin-list-item:hover {
+  border-color: #b8ead0;
+  background: #fafffc;
+  box-shadow: 0 5px 16px rgba(16, 185, 129, 0.07);
+  transform: translateY(-2px);
+}
+
+.payments-section .admin-list-item span {
+  color: #27334d;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.7;
+}
+
+/* Section headings */
+.orders-section .section-heading,
+.payments-section .section-heading {
+  padding-bottom: 18px;
+  margin-bottom: 22px;
+  border-bottom: 1px solid #edf0f6;
+}
+
+.orders-section .section-heading h2,
+.payments-section .section-heading h2 {
+  margin-bottom: 0;
+}
+
+/* Empty state */
+.orders-section > p,
+.payments-section > p {
+  padding: 28px;
+  text-align: center;
+  color: #8992a5;
+  background: #f8f9fc;
+  border: 1px dashed #dce2ee;
+  border-radius: 12px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .orders-section,
+  .payments-section {
+    padding: 18px;
+  }
+
+  .orders-section .admin-list-item {
+    grid-template-columns: 1fr;
+  }
+
+  .orders-section .admin-list-item select {
+    width: 100%;
+  }
+
+  .payments-section .admin-list-item {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .orders-section,
+  .payments-section {
+    padding: 14px;
+  }
+
+  .orders-section h2,
+  .payments-section h2 {
+    font-size: 19px;
+  }
+
+  .orders-section .admin-list-item,
+  .payments-section .admin-list-item {
+    padding: 16px;
+  }
+}
+
+/* ========================================
+   PREMIUM PAYMENTS DESIGN
+======================================== */
+
+.payments-section {
+  padding: 28px;
+  background: #ffffff;
+  border: 1px solid #e8edf5;
+  border-radius: 18px;
+  box-shadow: 0 8px 30px rgba(20, 30, 60, 0.05);
+}
+
+.payments-section h2 {
+  color: #17213b;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+.payments-section .admin-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 20px 24px;
+  margin-bottom: 14px;
+  background: #ffffff;
+  border: 1px solid #e8edf5;
+  border-left: 4px solid #6c63ff;
+  border-radius: 12px;
+  transition: 0.25s ease;
+}
+
+.payments-section .admin-list-item:hover {
+  transform: translateY(-3px);
+  background: #f9faff;
+  border-color: #c9c5ff;
+  box-shadow: 0 8px 20px rgba(108, 99, 255, 0.09);
+}
+
+.payments-section .admin-list-item span {
+  color: #28344e;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.7;
+}
+
+/* Payment status colors */
+.payments-section .admin-list-item span {
+  overflow-wrap: anywhere;
+}
+
+.payments-section .admin-list-item span::first-letter {
+  color: #28344e;
+}
+
+@media (max-width: 600px) {
+  .payments-section {
+    padding: 16px;
+  }
+
+  .payments-section .admin-list-item {
+    padding: 16px;
+    align-items: flex-start;
+  }
+}
