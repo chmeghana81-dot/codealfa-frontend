@@ -1,8 +1,9 @@
 ﻿import React, { useEffect, useState } from "react";
 import "./AdminDashboard.css";
-const 127.0.0.1:8000=import.meta.env.VITE_API_URL
 
-const API_BASE = "https://{127.0.0.1:8000}/api";
+const apiUrl = import.meta.env.VITE_API_URL
+
+const API_BASE = `https://${apiUrl}/api`;
 
 const getList = (data) => {
   if (Array.isArray(data)) return data;

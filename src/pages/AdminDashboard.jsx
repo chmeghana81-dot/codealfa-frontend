@@ -1,7 +1,12 @@
 ﻿import React, { useCallback, useEffect, useState } from "react";
 import "./AdminDashboard.css";
 
-const API_BASE = "https://{127.0.0.1:8000}/api";
+
+// const apiUrl = import.meta.env.VITE_API_URL
+
+// console.log(apiUrl)
+
+const API_BASE =  import.meta.env.VITE_API_URL
 
 const initialProduct = {
   name: "",
@@ -91,12 +96,12 @@ const AdminDashboard = () => {
     const errors = {};
 
     const endpoints = [
-      { key: "products", url: "/products/", setter: setProducts },
-      { key: "categories", url: "/categories/", setter: setCategories },
-      { key: "carts", url: "/cart/admin/", setter: setCarts },
-      { key: "users", url: "/auth/admin/users/", setter: setUsers },
-      { key: "orders", url: "/orders/admin/", setter: setOrders },
-      { key: "payments", url: "/payments/admin/", setter: setPayments },
+      { key: "products", url: "products/", setter: setProducts },
+      { key: "categories", url: "categories/", setter: setCategories },
+      { key: "carts", url: "cart/admin/", setter: setCarts },
+      { key: "users", url: "auth/admin/users/", setter: setUsers },
+      { key: "orders", url: "orders/admin/", setter: setOrders },
+      { key: "payments", url: "payments/admin/", setter: setPayments },
     ];
 
     await Promise.all(
@@ -213,7 +218,7 @@ const AdminDashboard = () => {
       formData.append("stock", String(stock));
       formData.append("image", imageFile);
 
-      await request("/products/", {
+      await request("products/", {
         method: "POST",
         body: formData,
       });
@@ -251,7 +256,7 @@ const AdminDashboard = () => {
     }
 
     try {
-      await request(`/products/${id}/`, {
+      await request(`products/${id}/`, {
         method: "DELETE",
       });
 
@@ -270,7 +275,7 @@ const AdminDashboard = () => {
     if (!window.confirm("Delete this category?")) return;
 
     try {
-      await request(`/categories/${id}/`, {
+      await request(`categories/${id}/`, {
         method: "DELETE",
       });
 
@@ -296,7 +301,7 @@ const formatAdminCurrency = (amount) => {
 // UPDATE ORDER STATUS
 const handleOrderStatus = async (id, status) => {
   try {
-    await request(`/orders/admin/${id}/status/`, {
+    await request(`orders/admin/${id}/status/`, {
       method: "PATCH",
       body: JSON.stringify({ status }),
     });
