@@ -331,7 +331,7 @@ const handleOrderStatus = async (id, status) => {
       return image;
     }
 
-    return `https://{127.0.0.1:8000}${image.startsWith("/") ? "" : "/"}${image}`;
+    return `http://{127.0.0.1:8000}${image.startsWith("/") ? "" : "/"}${image}`;
   };
 
   return (

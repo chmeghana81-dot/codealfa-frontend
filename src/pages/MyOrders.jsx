@@ -82,7 +82,7 @@ function MyOrders() {
     if (!image) return "";
     return image.startsWith("http")
       ? image
-      : `https://{127.0.0.1:8000}${image}`;
+      : `http://{127.0.0.1:8000}${image}`;
   };
 
   if (loading) {
