@@ -5,7 +5,7 @@ import API from "../services/api";
 import Loader from "../components/Loader";
 import "./ProductDetails.css";
 
-const apiUrl = import.meta.env.VITE_API_URL
+const 127.0.0.1:8000 = import.meta.env.VITE_API_URL
 
 
 function ProductDetails() {
@@ -94,7 +94,7 @@ function ProductDetails() {
   const imageUrl = product.image
     ? product.image.startsWith("http")
       ? product.image
-      : `https://{apiUrl}${product.image}`
+      : `http://{127.0.0.1:8000}${product.image}`
     : null;
 
   const increaseQuantity = () => {

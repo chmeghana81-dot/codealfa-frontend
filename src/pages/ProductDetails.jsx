@@ -95,7 +95,7 @@ function ProductDetails() {
   const imageUrl = product.image
     ? product.image.startsWith("http")
       ? product.image
-      : `https://{apiUrl}${product.image}`
+      : `https://{127.0.0.1:8000}${product.image}`
     : "";
 
   const price = Number(product.price || 0);

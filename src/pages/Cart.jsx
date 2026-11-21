@@ -106,7 +106,7 @@ function Cart() {
             {items.map((item) => {
               const image = item.product_image;
               const imageUrl = image
-                ? image.startsWith("http") ? image : `https://{apiUrl}${image}`
+                ? image.startsWith("http") ? image : `https://{127.0.0.1:8000}${image}`
                 : "";
 
               return (

@@ -345,7 +345,7 @@
 //                 const imageUrl = image
 //                   ? image.startsWith("http")
 //                     ? image
-//                     : `https://{apiUrl}${image}`
+//                     : `https://{127.0.0.1:8000}${image}`
 //                   : "";
 
 //                 return (
@@ -1065,7 +1065,7 @@
 //                 const imageUrl = image
 //                   ? image.startsWith("http")
 //                     ? image
-//                     : `https://{apiUrl}${image}`
+//                     : `https://{127.0.0.1:8000}${image}`
 //                   : "";
 
 //                 return (
@@ -1823,7 +1823,7 @@ function Checkout() {
                 const imageUrl = image
                   ? image.startsWith("http")
                     ? image
-                    : `https://{apiUrl}${image}`
+                    : `https://{127.0.0.1:8000}${image}`
                   : "";
 
                 return (

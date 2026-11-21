@@ -1,7 +1,7 @@
 ﻿import React, { useCallback, useEffect, useState } from "react";
 import "./AdminDashboard.css";
 
-const API_BASE = "https://{apiUrl}/api";
+const API_BASE = "https://{127.0.0.1:8000}/api";
 
 const initialProduct = {
   name: "",
@@ -331,7 +331,7 @@ const handleOrderStatus = async (id, status) => {
       return image;
     }
 
-    return `https://{apiUrl}${image.startsWith("/") ? "" : "/"}${image}`;
+    return `https://{127.0.0.1:8000}${image.startsWith("/") ? "" : "/"}${image}`;
   };
 
   return (
