@@ -45,7 +45,7 @@ function Navbar() {
               <span className="account-link">
                 <FaUserCircle /> {user?.username || "Account"}
               </span>
-              <button type="button" onClick={handleLogout}>
+              <button type="button"  className="logout-button" onClick={handleLogout}>
                 Logout
               </button>
             </>

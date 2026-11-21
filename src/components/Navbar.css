@@ -157,3 +157,30 @@
     font-size: 11px;
   }
 }
+
+.logout-button {
+    background-color: transparent;
+    color: #5e44ef;
+    border: 1px solid #5e44ef;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.logout-button:hover {
+    background-color: #5e44ef;
+    color: #ffffff;
+    box-shadow: 0 2px 8px rgba(239, 68, 68, 0.2);
+}
+
+.logout-button:active {
+    transform: scale(0.96);
+}
+
+.logout-button:focus-visible {
+    outline: 2px solid #5e44ef;
+    outline-offset: 3px;
+}
