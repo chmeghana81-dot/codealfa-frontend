@@ -1,13 +1,13 @@
 ﻿import { Link } from "react-router-dom";
 import "./ProductCard.css";
-const 127.0.0.1:8000 = 127.0.0.1:8000
+
 
 
 function ProductCard({ product }) {
   const imageUrl = product.image
     ? product.image.startsWith("http")
       ? product.image
-      : `https://{127.0.0.1:8000}${product.image}`
+      : `http://{127.0.0.1:8000}${product.image}`
     : "";
 
   return (
